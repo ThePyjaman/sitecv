@@ -13,6 +13,6 @@ class CoreController extends Controller
     
     public function contactAction()
     {
-        // page de contact
+        return $this->render('TPCoreBundle:Core:contact.html.twig');
     }
 }
