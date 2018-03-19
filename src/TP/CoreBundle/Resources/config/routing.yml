@@ -3,3 +3,7 @@ tp_core_homepage:
     defaults: 
         _controller: TPCoreBundle:Core:index 
         
+tp_core_contact:
+    path:     /Contact
+    defaults: 
+        _controller: TPCoreBundle:Core:contact 

@@ -8,6 +8,11 @@ class CoreController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TPCoreBundle::layout.html.twig'); // :: nécéssaires a la racine
+        return $this->render('TPCoreBundle::layout.html.twig'); // :: nécessaires a la racine
+    }
+    
+    public function contactAction()
+    {
+        // page de contact
     }
 }

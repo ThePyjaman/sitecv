@@ -1,3 +1,7 @@
+tp_display:
+    resource: "@TPDisplayBundle/Resources/config/routing.yml"
+    prefix:   /Display
+
 tp_core:
     resource: "@TPCoreBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,0 +1,30 @@
+tp_display_projects:
+    path:     /Projects/
+    defaults: 
+        _controller: TPDisplayBundle:Display:index
+        
+    
+tp_display_project:
+    path:     /Projects/{id}
+    defaults: 
+        _controller: TPDisplayBundle:Display:view
+        id: "nodata"
+    requirements:
+        id: \d+
+        
+        
+        
+tp_display_jobs:
+    path:     /Jobs/
+    defaults: 
+        _controller: TPDisplayBundle:Display:index
+        
+    
+tp_display_job:
+    path:     /Jobs/{id}
+    defaults: 
+        _controller: TPDisplayBundle:Display:view
+        id: "nodata"
+    requirements:
+        id: \d+
+    
