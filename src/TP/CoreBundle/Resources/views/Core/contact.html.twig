@@ -9,10 +9,24 @@
     <h1>Me contacter</h1>
 
     <hr>
-    <p>message flashbag pour dire que le formulaire à bien été envoyé</p>
+    <div>
+      {% for message in app.session.flashbag.get('notice') %}
+        <p>Message flash : {{ message }}</p>
+      {% endfor %}
+    </div>
     
     <p>c'est la page contact samere</p>
     
-    <p> peut être mettre un formulaire pour contact rapide</p>
+    <div class="container">
+       <div class="row">
+           <div class="col-sm-4">
+ 
+                   {{form_start(form)}}
+                   {{form_widget(form)}}
+                   {{form_end(form)}}
+ 
+           </div>
+       </div>
+    </div>
 
 {% endblock %}
