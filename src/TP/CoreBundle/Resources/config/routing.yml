@@ -1,5 +1,5 @@
 tp_core_homepage:
     path:     /
     defaults: 
-        _controller: TPCoreBundle:Default:index 
+        _controller: TPCoreBundle:Core:index 
         
