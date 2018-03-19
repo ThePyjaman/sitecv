@@ -25,24 +25,43 @@ class CoreController extends Controller
     
     public function contactAction(Request $request)
     {
-        if ($request->isMethod('POST')) 
-        {
-            // envoyer le mail ici
-            
-            $request->getSession()->getFlashBag()->add('notice', 'Mail envoyé avec succès!');
-            return $this->redirectToRoute('tp_core_contact');
-        }
+        
         $contact = new Contact;
         
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $contact)
             ->add('name', TextType::class)
             ->add('email', TextType::class)
-            ->add('subject', TextType::class)
             ->add('message', TextareaType::class)
             ->add('Save', SubmitType::class)
         ;
         $form = $formBuilder->getForm();
         
+        if ($request->isMethod('POST')) 
+        {
+            
+            $form->handleRequest($request);
+            if($form->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($contact);
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('notice', 'Mail bien envoyé!');
+                
+                // envoi du mail
+                $message = \Swift_Message::newInstance()
+ 
+               ->setSubject('Merci de votre attention!')
+               ->setFrom('test@test.com')
+               ->setTo($contact->getEmail())
+               ->setBody($this->renderView('TPCoreBundle:Core:email.html.twig',array('name' => $contact->getName())),'text/html');
+ 
+                $this->get('mailer')->send($message);
+                
+                return $this->redirectToRoute('tp_core_contact');
+            }
+            
+            
+        }
         return $this->render('TPCoreBundle:Core:contact.html.twig', array(
             'form' => $form->createView(),
         ));

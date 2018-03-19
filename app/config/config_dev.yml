@@ -9,7 +9,7 @@ framework:
 
 web_profiler:
     toolbar: true
-    intercept_redirects: false
+    intercept_redirects: true
 
 monolog:
     handlers:
@@ -38,6 +38,8 @@ monolog:
         #    level: info
 
 swiftmailer:
-        transport: gmail
-        username:  '%mailer_user%'
-        password:  '%mailer_password%'
+    transport:  gmail
+    host:       '%mailer_host%'
+    username:   '%mailer_user%'
+    password:   '%mailer_password%'
+    spool:      { type: memory }

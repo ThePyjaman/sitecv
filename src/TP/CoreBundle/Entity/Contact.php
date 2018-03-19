@@ -1,7 +1,8 @@
 <?php
 
-namespace TP\CoreBundle\Entity;
 
+namespace TP\CoreBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Contact
  */
@@ -14,21 +15,19 @@ class Contact
 
     /**
      * @var string
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
      * @var string
+     * @Assert\Email()
      */
     private $email;
 
     /**
      * @var string
-     */
-    private $subject;
-
-    /**
-     * @var string
+     * @Assert\NotBlank()
      */
     private $message;
 
@@ -91,29 +90,6 @@ class Contact
         return $this->email;
     }
 
-    /**
-     * Set subject
-     *
-     * @param string $subject
-     *
-     * @return Contact
-     */
-    public function setSubject($subject)
-    {
-        $this->subject = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Get subject
-     *
-     * @return string
-     */
-    public function getSubject()
-    {
-        return $this->subject;
-    }
 
     /**
      * Set message
