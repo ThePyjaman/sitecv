@@ -13,6 +13,13 @@ class CoreController extends Controller
     
     public function contactAction()
     {
+        if ($request->isMethod('POST')) 
+        {
+            // envoyer le mail ici
+            
+            $request->getSession()->getFlashBag()->add('notice', 'Message envoyé avec succès!');
+            return $this->redirectToRoute('tp_core_contact');
+        }
         return $this->render('TPCoreBundle:Core:contact.html.twig');
     }
 }
