@@ -45,7 +45,7 @@ class CoreController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contact);
                 $em->flush();
-                $request->getSession()->getFlashBag()->add('notice', 'Mail bien envoyé!');
+                $request->getSession()->getFlashBag()->add('notice', 'Message reçu!');
                 
                 // envoi du mail
                 $message = \Swift_Message::newInstance()

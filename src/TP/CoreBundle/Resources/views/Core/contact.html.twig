@@ -9,10 +9,28 @@
     <h1>Me contacter</h1>
 
     <hr>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title">Informations de contact</h2>
+        </div>
+        <div class="panel-body">
+            <p>
+                Email:hugo.batt3@gmail.com<br/>
+                Tel: 0XXXXXXXXX
+            </p>
+        </div>
+    </div>
+    
+    <hr>
+    <h2>Contact rapide</h2>
+    
+    
     <div>
-      {% for message in app.session.flashbag.get('notice') %}
-        <p>Message flash : {{ message }}</p>
-      {% endfor %}
+        {% for message in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success">
+                <strong>{{message}}</strong>
+            </div>
+        {% endfor %}
     </div>
     
     <div class="container">
